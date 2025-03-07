@@ -6,9 +6,9 @@
 //
 import Foundation
 
-class NetworkManger {
+public class NetworkManger {
 
-    func fetchPhotos() async throws -> [Photo]? {
+    public func fetchPhotos() async throws -> [Photo]? {
 
         do {
             let url = URL(string: "https://jsonplaceholder.typicode.com/photos")!
@@ -20,7 +20,7 @@ class NetworkManger {
         }
     }
 
-    func fetchPosts() async throws -> [Post]? {
+    public func fetchPosts() async throws -> [Post]? {
 
         do {
             let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
@@ -32,7 +32,7 @@ class NetworkManger {
         }
     }
 
-    func fetchComments() async throws -> [Comment]? {
+    public func fetchComments() async throws -> [Comment]? {
 
         do {
             let url = URL(string: "https://jsonplaceholder.typicode.com/comments")!
@@ -44,7 +44,7 @@ class NetworkManger {
         }
     }
 
-    func fetchAlbum() async throws -> [Album]? {
+    public func fetchAlbum() async throws -> [Album]? {
 
         do {
             let url = URL(string: "https://jsonplaceholder.typicode.com/albums")!
@@ -56,7 +56,7 @@ class NetworkManger {
         }
     }
 
-    func fetch<T: Decodable>(url: URL) async throws  -> [T]? {
+    public func fetch<T: Decodable>(url: URL) async throws  -> [T]? {
         do {
             let data = try await URLSession.shared.data(from: url)
             let list = try JSONDecoder().decode([T].self, from: data.0)
